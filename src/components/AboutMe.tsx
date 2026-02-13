@@ -77,7 +77,7 @@ export default function AboutMe() {
                                     En la formación, mi misión es desmitificar la IA: ni magia negra ni el fin
                                     del mundo. A través de ponencias dinámicas y talleres prácticos, demuestro
                                     cómo esta tecnología ha llegado para darnos{" "}
-                                    <span className="text-[#10B981] font-bold inline-flex items-center gap-1">
+                                    <span className="text-gray-900 font-bold inline-flex items-center gap-1">
                                         &ldquo;superpoderes&rdquo; <Rocket className="w-4 h-4" />
                                     </span>{" "}
                                     productivos y creativos.
