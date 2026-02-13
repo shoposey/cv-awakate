@@ -1,26 +1,195 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+/* ============================================
+   Design System — CV Interactivo
+   Based on design.md specifications
+   ============================================ */
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  /* ---- Colors ---- */
+  --color-cream: #f5f1e8;
+  --color-cream-dark: #ede8db;
+  --color-black: #000000;
+  --color-white: #ffffff;
+  --color-accent: #0B3D2E;
+  --color-accent-hover: #08281e;
+  --color-accent-light: rgba(11, 61, 46, 0.1);
+  --color-gray-100: #f7f7f7;
+  --color-gray-200: #e5e5e5;
+  --color-gray-300: #d4d4d4;
+  --color-gray-400: #a3a3a3;
+  --color-gray-500: #737373;
+  --color-gray-600: #525252;
+  --color-gray-700: #404040;
+  --color-gray-800: #262626;
+  --color-success: #10B981;
+
+  /* ---- Typography ---- */
+  --font-sans: "Inter", system-ui, -apple-system, sans-serif;
+
+  /* ---- Spacing scale (4px base) ---- */
+  --spacing-1: 4px;
+  --spacing-2: 8px;
+  --spacing-3: 12px;
+  --spacing-4: 16px;
+  --spacing-5: 20px;
+  --spacing-6: 24px;
+  --spacing-8: 32px;
+  --spacing-10: 40px;
+  --spacing-12: 48px;
+  --spacing-16: 64px;
+  --spacing-20: 80px;
+  --spacing-24: 96px;
+
+  /* ---- Shadow scale ---- */
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.07), 0 2px 4px -2px rgba(0, 0, 0, 0.05);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.08), 0 4px 6px -4px rgba(0, 0, 0, 0.05);
+  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.05);
+  --shadow-2xl: 0 25px 50px -12px rgba(0, 0, 0, 0.15);
+
+  /* ---- Breakpoints ---- */
+  --breakpoint-sm: 640px;
+  --breakpoint-md: 768px;
+  --breakpoint-lg: 1024px;
+  --breakpoint-xl: 1280px;
+
+  /* ---- Animation timing ---- */
+  --ease-smooth: cubic-bezier(0.4, 0, 0.2, 1);
+  --ease-bounce: cubic-bezier(0.34, 1.56, 0.64, 1);
+
+  /* ---- Container ---- */
+  --container-max: 1200px;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+/* ---- CSS Custom Properties for gradients (not supported in @theme) ---- */
+:root {
+  --gradient-accent: linear-gradient(135deg, #0B3D2E, #10B981);
+  --gradient-hero: linear-gradient(180deg, rgba(245, 241, 232, 0) 0%, rgba(245, 241, 232, 1) 100%);
+  --duration-fast: 150ms;
+  --duration-normal: 300ms;
+  --duration-slow: 500ms;
+  --duration-section: 800ms;
+}
+
+/* ---- Base styles ---- */
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: var(--color-cream);
+  color: var(--color-black);
+  font-family: var(--font-sans);
+  font-weight: 400;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ---- Accessibility: reduced motion ---- */
+@media (prefers-reduced-motion: reduce) {
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ---- Section layout ---- */
+.section {
+  width: 100%;
+  padding-left: var(--spacing-6);
+  padding-right: var(--spacing-6);
+  padding-top: var(--spacing-16);
+  padding-bottom: var(--spacing-16);
+}
+
+@media (min-width: 768px) {
+  .section {
+    padding-left: var(--spacing-10);
+    padding-right: var(--spacing-10);
+    padding-top: var(--spacing-20);
+    padding-bottom: var(--spacing-20);
+  }
+}
+
+.section-content {
+  max-width: var(--container-max);
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* ---- Typography scale ---- */
+.text-display {
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-weight: 800;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+}
+
+.text-h1 {
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+}
+
+.text-h2 {
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  font-weight: 600;
+  line-height: 1.3;
+}
+
+.text-h3 {
+  font-size: clamp(1.125rem, 2vw, 1.5rem);
+  font-weight: 600;
+  line-height: 1.4;
+}
+
+.text-body {
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.6;
+}
+
+.text-body-sm {
+  font-size: 0.875rem;
+  font-weight: 400;
+  line-height: 1.5;
+}
+
+.text-caption {
+  font-size: 0.75rem;
+  font-weight: 500;
+  line-height: 1.4;
+  letter-spacing: 0.02em;
+}
+
+/* ---- Scrollbar styling ---- */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-gray-300);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-gray-400);
+}
+
+/* ---- Selection ---- */
+::selection {
+  background-color: var(--color-accent-light);
+  color: var(--color-accent);
 }
