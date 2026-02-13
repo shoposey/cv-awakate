@@ -36,21 +36,21 @@ export default function Hero() {
             className="relative min-h-[100dvh] flex flex-col justify-center overflow-hidden bg-cream"
         >
             {/* 3D Scene Background - Absolute to cover/integrate properly */}
-            <div className="container mx-auto px-4 md:px-6 relative z-10 flex-grow flex flex-col justify-center pt-20 pb-0">
+            <div className="container mx-auto px-4 md:px-6 relative z-10 flex-grow flex flex-col justify-center pt-20 pb-24 md:pb-28">
                 <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-0 items-end h-full">
 
                     {/* Left Column: Text Content */}
-                    <div className="lg:col-span-7 space-y-8 pt-10 lg:pt-0 self-center">
+                    <div className="lg:col-span-7 space-y-6 pt-10 lg:pt-0 self-center">
                         <motion.div
                             initial={{ opacity: 0, y: 30 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
                         >
-                            <div className="flex items-center gap-2 mb-4">
+                            <div className="flex items-center gap-2 mb-2">
                                 <span className="text-4xl animate-wave origin-bottom-right inline-block">👋</span>
                             </div>
 
-                            <h1 className="text-5xl md:text-7xl lg:text-8xl tracking-tight text-gray-900 leading-[1.1] mb-6 font-normal">
+                            <h1 className="text-5xl md:text-7xl lg:text-8xl tracking-tight text-gray-900 leading-[1.1] mb-4 font-normal">
                                 <span className="font-thin block">Hola!</span>
                                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-gray-900 via-gray-700 to-gray-900 font-bold block whitespace-nowrap">
                                     Soy Juan Carlos
